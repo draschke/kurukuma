@@ -1,0 +1,12 @@
+defaults: &defaults
+  host: localhost
+  port: 9090
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

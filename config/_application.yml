@@ -1,0 +1,16 @@
+defaults: &defaults
+  twitter:
+    consumer_key: ''
+    consumer_secret: ''
+  bitly:
+    user_id: ''
+    api_key: ''
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

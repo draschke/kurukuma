@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel='stylesheet' href='/assets/application.css'>
+<script type="text/javascript" src="/assets/application.js"></script>
+<script type="text/javascript" src="/assets/annotator/base.js"></script>
+
+</head>
+<body>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+接続してから5秒間隔で文字が表示される<br>
+<dl id="receiveMsg"></dl>
+</body>
+<script>
+annot = $(document.body).annotator()
+annot.annotator('addPlugin', 'Filter')
+annot.annotator('addPlugin', 'Tags')
+annot.annotator('addPlugin', 'Store', {
+  prefix: 'http://localhost:3000/page',
+  annotationData: {'uri': document.URL},
+  loadFromSearch: {'limit': 20,'uri': document.URL}
+});
+annot.annotator('addPlugin', 'Twitter')
+</script>
+</html>
