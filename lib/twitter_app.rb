@@ -9,7 +9,9 @@ module TwitterApp
   
   def twitter_info
     respond_to do |format|
-      format.json {render :json => {:twitter_info => current_user}.to_json()}
+      json = {:twitter_info => current_user}.to_json()
+      format.html {render :json => json}
+      format.json {render :json => json}
     end
   end
 
@@ -49,11 +51,11 @@ module TwitterApp
   def auth_token
     if !session['user_id'] || !current_user
       # user_id不在ならOpenID
-      url = url_for(:controller => :auth, :action => :twitter)
-      respond_to do |format|
-        format.json {render :json => {:redirect_url => url}.to_json()}
-      end
-      return false
+      #url = url_for(:controller => :auth, :action => :twitter)
+      #respond_to do |format|
+        #format.json {render :json => {:redirect_url => url}.to_json()}
+      #end
+      return true
     end
     return true
   end

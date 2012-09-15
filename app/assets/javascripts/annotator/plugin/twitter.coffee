@@ -8,7 +8,7 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
   pluginInit: ->
     return unless Annotator.supported()
     # twitter info get
-    request = $.ajax('/page/twitter_info', {
+    request = $.ajax(@options.prefix + 'page/twitter_info', {
       type:     "get",
       dataType: "json",
       success: (data) =>

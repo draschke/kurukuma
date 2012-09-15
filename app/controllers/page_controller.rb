@@ -15,7 +15,9 @@ class PageController < ApplicationController
       pages = []
     end
     respond_to do |format|
-      format.json {render :json => {:rows => pages}.to_json()}
+      json = {:rows => pages}.to_json()
+      format.html {render :json => json}
+      format.json {render :json => json}
     end
   end
   
@@ -45,7 +47,9 @@ class PageController < ApplicationController
       end
     end
     respond_to do |format|
-      format.json {render :json => {:id => id}.to_json}
+      json = {:id => id}.to_json
+      format.html {render :json => json}
+      format.json {render :json => json}
     end
   end
   
@@ -67,7 +71,9 @@ class PageController < ApplicationController
       end
     end
     respond_to do |format|
-      format.json {render :json => {:id => id}.to_json}
+      json = {:id => id}.to_json
+      format.html {render :json => json}
+      format.json {render :json => json}
     end
   end
   
@@ -85,7 +91,9 @@ class PageController < ApplicationController
       end
     end
     respond_to do |format|
-      format.json {render :json => {}}
+      json = {}
+      format.html {render :json => json}
+      format.json {render :json => json}
     end
   end
 end

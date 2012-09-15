@@ -3,7 +3,7 @@ fs = require 'fs'
 {print} = require 'util'
 {spawn} = require 'child_process'
 
-all = (callback) ->
+assets = (callback) ->
   coffee = spawn 'coffee', [
     '-b',
     '-wcj',
@@ -29,5 +29,36 @@ all = (callback) ->
   coffee.on 'exit', (code) ->
     callback?() if code is 0
 
-task 'all', 'Build all', ->
-  all()
+
+extension = (callback) ->
+  coffee = spawn 'coffee', [
+    '-b',
+    '-wcj',
+    'chrome_extension/javascripts/libs/annotator_plugins.js',
+    'app/assets/javascripts/annotator/extensions.coffee',
+    'app/assets/javascripts/annotator/console.coffee',
+    'app/assets/javascripts/annotator/class.coffee',
+    'app/assets/javascripts/annotator/range.coffee',
+    'app/assets/javascripts/annotator/annotator.coffee',
+    'app/assets/javascripts/annotator/widget.coffee',
+    'app/assets/javascripts/annotator/editor.coffee',
+    'app/assets/javascripts/annotator/viewer.coffee',
+    'app/assets/javascripts/annotator/notification.coffee',
+    'app/assets/javascripts/annotator/plugin/tags.coffee',
+    'app/assets/javascripts/annotator/plugin/filter.coffee',
+    'app/assets/javascripts/annotator/plugin/store.coffee',
+    'app/assets/javascripts/annotator/plugin/twitter.coffee',
+  ]
+  coffee.stderr.on 'data', (data) ->
+    process.stderr.write data.toString()
+  coffee.stdout.on 'data', (data) ->
+    print data.toString()
+  coffee.on 'exit', (code) ->
+    callback?() if code is 0
+
+
+task 'assets', 'Build assets js', ->
+  assets()
+
+task 'extension', 'Build chrome extension js', ->
+  extension()

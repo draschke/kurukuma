@@ -1,0 +1,31 @@
+{
+  "name": "Kurukuma",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "The beta version for kurukuma",
+  "browser_action": {
+    "default_title": "Kurukuma",
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": ["stylesheets/annotator.css"],
+      "js": [
+        "javascripts/libs/jquery.js",
+        "javascripts/libs/annotator.js",
+        "javascripts/libs/annotator_plugins.js",
+        "javascripts/background.js"
+      ]
+    }
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "tabs",
+    "background",
+    "http://api.flickr.com/"
+  ]
+}
