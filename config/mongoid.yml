@@ -67,4 +67,11 @@ test:
       options:
         consistency: :strong
 production:
+  # Configure available database sessions. (required)
+  sessions:
+    default:
+      database: kurukuma
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        consistency: :strong
   uri: <%= ENV['MONGOHQ_URL'] %>
