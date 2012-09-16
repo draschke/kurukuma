@@ -2426,7 +2426,7 @@ Annotator.Plugin.Twitter = (function(_super) {
   };
 
   Twitter.prototype.user_info = function() {
-    return retunrn(window.kurukuma_user_info);
+    return window.kurukuma_user_info;
   };
 
   return Twitter;

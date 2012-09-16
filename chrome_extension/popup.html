@@ -5,20 +5,79 @@
 <style>
 body {
 min-width:357px;
+min-width:357px;
 overflow-x:hidden;
+font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+font-weight: normal;
+text-align: left;
+margin: 0;
+padding: 0;
+background: none;
+-webkit-transition: none;
+-moz-transition: none;
+-o-transition: none;
+transition: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+-o-box-shadow: none;
+box-shadow: none;
+color: rgb(144, 144, 144);
 }
 
-img {
+img#loading {
 margin:5px;
-border:2px solid black;
+border:none;
 vertical-align:middle;
-width:75px;
-height:75px;
+width:25px;
+height:25px;
+}
+.annotator-twitter {
+	margin-bottom: -2px;
+}
+
+.annotator-twitter .annotator-twitter {
+	display: inline-block;
+	padding: 0 8px;
+	margin-bottom: 2px;
+	line-height: 1.6;
+	font-weight: bold;
+	background-color: rgb(230, 230, 230);
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+}
+
+div.annotator-twitter div.annotator-twitter-image,
+li.annotator-twitter div.annotator-twitter-image {
+	float: left;
+	padding: 6px 6px;
+}
+.annotator-twitter .annotator-twitter-image img {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+}
+.annotator-twitter .annotator-twitter-profile {
+	border: none;
+	padding: 8px 3px 0px 3px;
+}
+
+.annotator-twitter .annotator-twitter-counter {
+	position: absolute;
+	top: 8;
+	right: 15;
+	width: 56px;
+	height: 36px;
+	font-size: 30;
+	text-align: right;
 }
 </style>
 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
 <script src="javascripts/popup.js"></script>
 </head>
 <body>
+<img id="loading" src="images/loading.gif" />Confirm Twitter login...
 </body>
 </html>

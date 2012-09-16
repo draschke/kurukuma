@@ -70,5 +70,5 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
     return text
   
   user_info:->
-    retunrn window.kurukuma_user_info
+    return window.kurukuma_user_info
 

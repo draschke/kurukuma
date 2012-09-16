@@ -27,13 +27,15 @@ class PageController < ApplicationController
         row = params
         row.delete(:controller)
         row.delete(:action)
-        row[:twitter] = {
-          :id => current_user.uid,
-          :image => current_user.info['image'],
-          :nickname => current_user.info['nickname'],
-          :location => current_user.info['location'],
-          :twitter => current_user.info['urls']['Twitter'],
-        }
+        if current_user
+          row[:twitter] = {
+            :id => current_user.uid,
+            :image => current_user.info['image'],
+            :nickname => current_user.info['nickname'],
+            :location => current_user.info['location'],
+            :twitter => current_user.info['urls']['Twitter'],
+          }
+        end
         row = Page.create!(row)
         id = row[:_id]
         

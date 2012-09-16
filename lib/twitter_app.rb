@@ -4,7 +4,7 @@ require 'bitly'
 
 module TwitterApp
   def self.included(base)
-    base.append_before_filter :auth_token
+    base.append_before_filter :auth_token :only => [:twitter_info]
   end
   
   def twitter_info
