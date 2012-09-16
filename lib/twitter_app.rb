@@ -51,10 +51,12 @@ module TwitterApp
   def auth_token
     if !session['user_id'] || !current_user
       # user_id不在ならOpenID
-      #url = url_for(:controller => :auth, :action => :twitter)
-      #respond_to do |format|
-        #format.json {render :json => {:redirect_url => url}.to_json()}
-      #end
+      url = url_for(:controller => :auth, :action => :twitter)
+      respond_to do |format|
+        json = {:redirect_url => url}.to_json()
+        format.html {render :json => json}
+        format.json {render :json => json}
+      end
       return true
     end
     return true
