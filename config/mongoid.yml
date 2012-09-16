@@ -72,8 +72,7 @@ production:
     default:
       database: kurukuma
       hosts:
-        - - alex.mongohq.com
-          - 10006
+        - alex.mongohq.com:10006
       username: heroku
       password: a038fa3398b8e3182d61d233fb046b6c
       database: app7628574
