@@ -2355,10 +2355,10 @@ Annotator.Plugin.Twitter = (function(_super) {
       dataType: "json",
       success: function(data) {
         if (data.redirect_url) {
-          location.href = data.redirect_url;
-          return false;
+
+        } else {
+          return window.kurukuma_user_info = data.twitter_info;
         }
-        return _this.user_info = data.twitter_info.info;
       }
     });
     this.annotator.viewer.addField({
@@ -2389,8 +2389,8 @@ Annotator.Plugin.Twitter = (function(_super) {
   Twitter.prototype.updateField = function(field, annotation) {
     var count;
     field = $(field);
-    if (this.user_info) {
-      field.addClass('annotator-twitter').html(this.getHtml(this.user_info, true));
+    if (this.user_info()) {
+      field.addClass('annotator-twitter').html(this.getHtml(this.user_info(), true));
       count = $('#annotator-field-0')[0].value.length;
       return field.find(".annotator-twitter-counter").text(count);
     } else {
@@ -2423,6 +2423,10 @@ Annotator.Plugin.Twitter = (function(_super) {
     text = '"' + text + '" - ';
     text = text.replace(/\n/g, "");
     return text;
+  };
+
+  Twitter.prototype.user_info = function() {
+    return retunrn(window.kurukuma_user_info);
   };
 
   return Twitter;

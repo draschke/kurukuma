@@ -9,7 +9,7 @@ module TwitterApp
   
   def twitter_info
     respond_to do |format|
-      json = {:twitter_info => current_user}.to_json()
+      json = {:twitter_info => current_user.info}.to_json()
       format.html {render :json => json}
       format.json {render :json => json}
     end

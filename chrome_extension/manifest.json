@@ -26,6 +26,6 @@
   "permissions": [
     "tabs",
     "background",
-    "http://api.flickr.com/"
+    "http://kurukuma.herokuapp.com/"
   ]
 }

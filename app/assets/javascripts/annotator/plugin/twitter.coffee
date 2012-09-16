@@ -13,9 +13,11 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
       dataType: "json",
       success: (data) =>
         if data.redirect_url
-          location.href = data.redirect_url
-          return false
-        @user_info = data.twitter_info.info
+          # extensionではリダイレクトさせない
+          #location.href = data.redirect_url
+          #return false
+        else
+          window.kurukuma_user_info = data.twitter_info
     })
     @annotator.viewer.addField({
       load: this.updateViewer
@@ -42,8 +44,8 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
   
   updateField: (field, annotation) =>
     field = $(field)
-    if @user_info
-      field.addClass('annotator-twitter').html(@getHtml(@user_info, true))
+    if @user_info()
+      field.addClass('annotator-twitter').html(@getHtml(@user_info(), true))
       count = $('#annotator-field-0')[0].value.length
       field.find(".annotator-twitter-counter").text(count)
     else
@@ -66,4 +68,7 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
     text = '"' + text + '" - '
     text = text.replace(/\n/g, "");
     return text
+  
+  user_info:->
+    retunrn window.kurukuma_user_info
 
