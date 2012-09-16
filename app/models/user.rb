@@ -7,6 +7,9 @@ class User
   field :secret, type: String
 
   def self.find_by_provider_and_uid(provider, uid)
+    p 'find_by_provider_and_uid'
+    p provider
+    p uid
     User.where(:provider => provider.to_s, :uid => uid.to_s).first
   end
 
