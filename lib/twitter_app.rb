@@ -41,9 +41,7 @@ module TwitterApp
     end
 
     twitter_client = Twitter::Client.new
-    p 'Tweet!'
-    p text
-    #twitter_client.update(text)
+    twitter_client.update(text)
   end
 
   private

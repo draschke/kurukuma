@@ -40,8 +40,11 @@ class PageController < ApplicationController
         id = row[:_id]
         
         # 投稿
-        text = self.create_text(row)
-        self.status_update(text)
+        #if current_user && params[:post_twitter]
+        if current_user
+          text = self.create_text(row)
+          self.status_update(text)
+        end
         
       rescue => e
         id = nil

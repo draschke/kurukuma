@@ -2345,22 +2345,24 @@ Annotator.Plugin.Twitter = (function(_super) {
   };
 
   Twitter.prototype.pluginInit = function() {
-    var request,
-      _this = this;
+    var _this = this;
     if (!Annotator.supported()) {
       return;
     }
-    request = $.ajax(this.options.prefix + 'page/twitter_info', {
-      type: "get",
-      dataType: "json",
-      success: function(data) {
-        if (data.redirect_url) {
+    /*
+        request = $.ajax(@options.prefix + 'page/twitter_info', {
+          type:     "get",
+          dataType: "json",
+          success: (data) =>
+            if data.redirect_url
+              # extensionではリダイレクトさせない
+              #location.href = data.redirect_url
+              #return false
+            else
+              window.kurukuma_user_info = data.twitter_info
+        })
+    */
 
-        } else {
-          return window.kurukuma_user_info = data.twitter_info;
-        }
-      }
-    });
     this.annotator.viewer.addField({
       load: this.updateViewer
     });
@@ -2404,15 +2406,17 @@ Annotator.Plugin.Twitter = (function(_super) {
       editor_flg = false;
     }
     size = this.options.image_size;
-    string = '<div class="annotator-twitter-image">';
+    string = '';
+    string += '<div class="annotator-twitter-image">';
     string += '<img src="' + ui.image + '" width=' + size + ' height=' + size + ' />';
     string += '</div>';
-    string += '<div class="annotator-twitter-profile">@' + ui.nickname;
+    string += '<div class="annotator-twitter-profile">';
+    string += '@' + ui.nickname;
     if (!editor_flg) {
       string += '&nbsp;(<a href="' + ui.twitter + '" target="_blank">view in twitter</a>)';
     }
     string += '</div>';
-    string += '<div class="annotator-twitter-profile">' + ui.location + '</div>';
+    string += '<div class="annotator-twitter-location">' + ui.location + '</div>';
     if (editor_flg) {
       string += '<div class="annotator-twitter-counter">0</div>';
     }

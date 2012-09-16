@@ -8,6 +8,8 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
   pluginInit: ->
     return unless Annotator.supported()
     # twitter info get
+    
+    ###
     request = $.ajax(@options.prefix + 'page/twitter_info', {
       type:     "get",
       dataType: "json",
@@ -19,6 +21,7 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
         else
           window.kurukuma_user_info = data.twitter_info
     })
+    ###
     @annotator.viewer.addField({
       load: this.updateViewer
     })
@@ -53,14 +56,16 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
   
   getHtml: (ui, editor_flg = false)=>
     size = @options.image_size
-    string = '<div class="annotator-twitter-image">'
+    string = ''
+    string += '<div class="annotator-twitter-image">'
     string += '<img src="' + ui.image + '" width=' + size + ' height=' + size + ' />'
     string += '</div>'
-    string += '<div class="annotator-twitter-profile">@' + ui.nickname
+    string += '<div class="annotator-twitter-profile">'
+    string += '@' + ui.nickname
     unless editor_flg
       string += '&nbsp;(<a href="' + ui.twitter + '" target="_blank">view in twitter</a>)'
     string += '</div>'
-    string += '<div class="annotator-twitter-profile">' + ui.location + '</div>'
+    string += '<div class="annotator-twitter-location">' + ui.location + '</div>'
     if editor_flg
       string += '<div class="annotator-twitter-counter">0</div>'
     return string

@@ -8,7 +8,7 @@
     dataType: "json",
     success: function(data) {
       var back, size, string, ui;
-      console.log('ajax:twitter_info');
+      console.log('popup:twitter_info');
       console.log(data);
       if (data.redirect_url) {
         chrome.tabs.create({
@@ -26,7 +26,7 @@
         string += '</div>';
         string += '<div class="annotator-twitter-profile">@' + ui.nickname;
         string += '</div>';
-        string += '<div class="annotator-twitter-profile">' + ui.location + '</div>';
+        string += '<div class="annotator-twitter-location">' + ui.location + '</div>';
         string += '</div>';
         return $("body").html(string);
       }

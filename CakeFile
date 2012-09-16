@@ -60,6 +60,7 @@ extension = (callback) ->
   
   coffee2 = spawn 'coffee', [
     '-wc',
+    'chrome_extension/javascripts/content.coffee',
     'chrome_extension/javascripts/background.coffee',
     'chrome_extension/javascripts/popup.coffee',
   ]
