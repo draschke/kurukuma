@@ -16,7 +16,7 @@ class User
     p 'uid:to_s'
     p uid.to_s
     p 'where'
-    user = User.where(:provider => provider.to_s, :uid => uid.to_s).first
+    user = User.where(:provider => provider, :uid => uid).first
     p user
     return user
   end
