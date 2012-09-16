@@ -16,7 +16,9 @@ class User
     p 'uid:to_s'
     p uid.to_s
     p 'where'
-    User.where(:provider => provider.to_s, :uid => uid.to_s).first
+    user = User.where(:provider => provider.to_s, :uid => uid.to_s).first
+    p user
+    return user
   end
 
   def self.create_with_omniauth(auth)
