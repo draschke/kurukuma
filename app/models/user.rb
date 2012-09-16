@@ -9,7 +9,13 @@ class User
   def self.find_by_provider_and_uid(provider, uid)
     p 'find_by_provider_and_uid'
     p provider
+    p 'uid'
     p uid
+    p 'prov:to_s'
+    p provider.to_s
+    p 'uid:to_s'
+    p uid.to_s
+    p 'where'
     User.where(:provider => provider.to_s, :uid => uid.to_s).first
   end
 
