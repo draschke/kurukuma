@@ -1,9 +1,13 @@
 require 'twitter_app'
 require 'user'
+
 class PagesController < ApplicationController
+  respond_to :html, :json
   include TwitterApp
   
   def index
+    @pages = Page.desc(:$natural).limit(30).to_a
+    respond_with(@pages)
   end
  
   def search

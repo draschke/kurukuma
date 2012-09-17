@@ -52,6 +52,6 @@ gem 'settingslogic'
 
 
 gem "spine-rails"
-
+gem "eco"
 
 
