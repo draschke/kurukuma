@@ -19,12 +19,17 @@ module TwitterApp
   def create_text(row)
     url = row.uri
     begin
-      Bitly.use_api_version_3
-      bitly = Bitly.new(Settings.bitly.user_id, Settings.bitly.api_key)
-      ret = bitly.shorten(row.uri)
-      url = ret.short_url
+      shortUrl = ShortUrl.where(url: url).first
+      if shortUrl
+        url = shortUrl.s_url
+      else
+        Bitly.use_api_version_3
+        bitly = Bitly.new(Settings.bitly.user_id, Settings.bitly.api_key)
+        ret = bitly.shorten(row.uri)
+        url = ret.short_url
+      end
     rescue => e
-      logger.error sprintf('bitly api exception:%s', e.message)
+      logger.error sprintf('url shorten exception:%s', e.message)
     end
     
     count = 140 - 1 - url.length

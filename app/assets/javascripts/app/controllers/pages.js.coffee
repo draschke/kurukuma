@@ -18,13 +18,11 @@ class App.Pages extends Spine.Controller
     App.Page.bind 'refresh', =>
       @el.removeClass('loading')
       @render(arguments...)
-
-    pages = App.Page.fetch()
+	
+    App.Page.fetch()
     
   render: (items = []) =>
     for item in items
       @items.append JST['app/views/pages/item'](item)
       
-  scroll: (e, direction) =>
-    App.Page.fetch()
 
