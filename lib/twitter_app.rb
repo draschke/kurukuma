@@ -19,7 +19,7 @@ module TwitterApp
   def create_text(row)
     url = row.uri
     begin
-      shortUrl = ShortUrl.where(url: url).first
+      shortUrl = Page.where(url: url).first
       if shortUrl
         url = shortUrl.s_url
       else

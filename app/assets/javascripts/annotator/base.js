@@ -2350,7 +2350,7 @@ Annotator.Plugin.Twitter = (function(_super) {
     if (!Annotator.supported()) {
       return;
     }
-    request = $.ajax(this.options.prefix + 'page/twitter_info', {
+    request = $.ajax(this.options.prefix + 'messages/twitter_info', {
       type: "get",
       dataType: "json",
       success: function(data) {
