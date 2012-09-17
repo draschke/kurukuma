@@ -51,3 +51,7 @@ gem 'bitly'
 gem 'settingslogic'
 
 
+gem "spine-rails"
+
+
+

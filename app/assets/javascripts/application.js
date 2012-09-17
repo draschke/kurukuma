@@ -15,3 +15,5 @@
 //= require_directory .
 //# サブディレクトリを無視
 //# require_tree .
+
+//= require app

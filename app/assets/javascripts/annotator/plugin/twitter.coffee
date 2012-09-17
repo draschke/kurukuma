@@ -10,7 +10,7 @@ class Annotator.Plugin.Twitter extends Annotator.Plugin
     # twitter info get
     
     ###
-    request = $.ajax(@options.prefix + 'page/twitter_info', {
+    request = $.ajax(@options.prefix + 'pages/twitter_info', {
       type:     "get",
       dataType: "json",
       success: (data) =>

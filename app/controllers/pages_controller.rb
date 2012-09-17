@@ -1,6 +1,6 @@
 require 'twitter_app'
 require 'user'
-class PageController < ApplicationController
+class PagesController < ApplicationController
   include TwitterApp
   
   def index

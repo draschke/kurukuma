@@ -7,7 +7,7 @@
   annot.annotator('addPlugin', 'Tags');
 
   annot.annotator('addPlugin', 'Store', {
-    prefix: 'http://kurukuma.herokuapp.com/page',
+    prefix: 'http://kurukuma.herokuapp.com/pages',
     annotationData: {
       'uri': document.URL
     },
