@@ -2,7 +2,7 @@ annot = $(document.body).annotator()
 #annot.annotator('addPlugin', 'Filter')
 annot.annotator('addPlugin', 'Tags')
 annot.annotator('addPlugin', 'Store', {
-  prefix: 'http://kurukuma.herokuapp.com/pages',
+  prefix: 'http://kurukuma.herokuapp.com/messages',
   annotationData: {'uri': document.URL},
   loadFromSearch: {'limit': 20,'uri': document.URL}
 });
