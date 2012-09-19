@@ -1,6 +1,8 @@
+<h2>Recent messages..</h2>
 <div id="messages"></div>
-<script type="text/javascript" charset="utf-8">
+
+<% content_for :script do %>
   jQuery(function(){
     new App.Messages({el: $("#messages")});
   });
-</script>
+<% end %>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_directory .
 //# サブディレクトリを無視
 //# require_tree .

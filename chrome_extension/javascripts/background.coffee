@@ -1,3 +1,4 @@
+
 chrome.extension.onRequest.addListener((request, sender, sendResponse)->
   console.log(33)
   chrome.tabs.sendRequest(sender.tab.id, {user_info: window.kurukuma_user_info})
@@ -10,7 +11,7 @@ chrome.tabs.getSelected(null, (tab)->
   )
 )
 
-request = $.ajax('http://kurukuma.herokuapp.com/messages/twitter_info', {
+request = $.ajax('http://'+kurukuma.domain+'/messages/twitter_info', {
   type:     "get",
   dataType: "json",
   success: (data) =>

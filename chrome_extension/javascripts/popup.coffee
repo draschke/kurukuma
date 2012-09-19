@@ -1,7 +1,7 @@
 
 # TODO: back.kurukuma_user_info がset済みなら、本当は取らなくてもよい
 # 
-request = $.ajax('http://kurukuma.herokuapp.com/messages/twitter_info', {
+request = $.ajax('http://'+kurukuma.domain+'/messages/twitter_info', {
   type:     "get",
   dataType: "json",
   success: (data) =>

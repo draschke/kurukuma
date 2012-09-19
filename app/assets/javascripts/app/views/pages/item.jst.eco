@@ -1,2 +1,0 @@
-<li class="item"><%= @uri %></li>
-<li class="item"><%= @text %></li>

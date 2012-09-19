@@ -54,4 +54,5 @@ gem 'settingslogic'
 gem "spine-rails"
 gem "eco"
 
+gem "twitter-bootstrap-rails"
 

@@ -57,9 +57,9 @@ Kurukuma::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#callback'
   match '/logout' => 'sessions#destroy', :as => :logout
   
-  match 'page/annotations/', :to => "page#create", :via => :post
-  match 'page/annotations/', :to => "page#update", :via => :put
-  match 'page/annotations/', :to => "page#delete", :via => :delete
+  match 'messages/annotations/', :to => "messages#create", :via => :post
+  match 'messages/annotations/', :to => "messages#update", :via => :put
+  match 'messages/annotations/', :to => "messages#delete", :via => :delete
   match 'oauth_callback', :to => "page#oauth_callback"
   match ':controller(/:action(/:id))(.:format)'
 end

@@ -304,6 +304,7 @@ class Annotator extends Delegator
           # Oh Javascript, why you so crap? This will lose the traceback.
           throw e
 
+    annotation.title      = window.document.title
     annotation.quote      = []
     annotation.ranges     = []
     annotation.highlights = []

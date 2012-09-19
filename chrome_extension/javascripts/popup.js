@@ -3,7 +3,7 @@
   var request,
     _this = this;
 
-  request = $.ajax('http://kurukuma.herokuapp.com/messages/twitter_info', {
+  request = $.ajax('http://' + kurukuma.domain + '/messages/twitter_info', {
     type: "get",
     dataType: "json",
     success: function(data) {

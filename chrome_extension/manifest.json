@@ -16,6 +16,7 @@
         "javascripts/libs/jquery.js",
         "javascripts/libs/annotator.js",
         "javascripts/libs/annotator_plugins.js",
+        "javascripts/setting.js",
         "javascripts/content.js"
       ]
     }
@@ -26,6 +27,7 @@
   "permissions": [
     "tabs",
     "background",
+    "http://localhost:3000/",
     "http://kurukuma.herokuapp.com/"
   ]
 }

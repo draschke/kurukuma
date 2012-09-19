@@ -822,6 +822,7 @@ Annotator = (function(_super) {
         }
       }
     }
+    annotation.title = window.document.title;
     annotation.quote = [];
     annotation.ranges = [];
     annotation.highlights = [];

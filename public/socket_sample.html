@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+    <script>
+      $(document).ready(function(){
+        function debug (str) { $("#debug").append("<p>"+str+"</p>") };
+        
+        ws = new WebSocket("ws://localhost:60000/");
+        ws.onopen = function() { debug("Welcome to Chattata!") };
+        ws.onmessage = function(evt) { $("#msglist").append("<p>"+evt.data+"</p>") };
+        ws.onclose = function() { debug("socket closed") };
+
+        $("form").submit(function(){
+          var msg = $("input#msg");
+          ws.send(msg.val());
+          msg.val('');
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="debug"></div>
+    <form>
+      <input id="msg" type="text"></input>
+    </form>
+    <div id="msglist"></div>
+  </body>
+</html>

@@ -16,10 +16,12 @@ class App.Messages extends Spine.Controller
       @el.addClass('loading')
     
     App.Message.bind 'refresh', =>
+      console.log(11)
       @el.removeClass('loading')
       @render(arguments...)
-	
+      
     App.Message.fetch()
+    App.Message.refresh()
     
   render: (items = []) =>
     for item in items
